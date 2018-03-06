@@ -1,6 +1,16 @@
 package com.example.domain;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="event")
@@ -19,6 +29,9 @@ public class Event {
 	@Column(columnDefinition = "text")
 	private String description;
 
+	@OneToMany(mappedBy="event", cascade=CascadeType.ALL)
+	private List<Member> membersNumber;
+	
 	public Long getId() {
 		return id;
 	}
@@ -73,6 +86,14 @@ public class Event {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Member> getMembersNumber() {
+		return membersNumber;
+	}
+
+	public void setMembersNumber(List<Member> membersNumber) {
+		this.membersNumber = membersNumber;
 	}
 
 }

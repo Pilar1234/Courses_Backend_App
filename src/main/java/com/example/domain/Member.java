@@ -1,6 +1,12 @@
 package com.example.domain;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "member")
@@ -14,6 +20,9 @@ public class Member {
 	private String name;
 	private String lastName;
 
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Event event;
+	
 	public Long getId() {
 		return id;
 	}
@@ -44,6 +53,14 @@ public class Member {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 }

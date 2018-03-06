@@ -15,7 +15,6 @@ public class EventServiceImpl implements EventService{
 	@Autowired
 	private EventRepository eventRepository;
 	
-
 	public Event create(Event event) {
 		return eventRepository.save(event);
 	}
@@ -23,11 +22,6 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public Event findOne(long id) {
 		return eventRepository.findOne(id);
-	}
-
-	@Override
-	public Event update(Event event) {
-		return null;
 	}
 
 	@Override

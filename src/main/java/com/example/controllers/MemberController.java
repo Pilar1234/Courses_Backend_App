@@ -16,12 +16,12 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@PostMapping("/add1")
+	@PostMapping("/addMember")
 	public Member addMemberPost (@RequestBody Member member) {
 		return memberService.create(member);
 	}
 	
-	@GetMapping("/add1")
+	@GetMapping("/addMember")
 	public List<Member> getAllMembers () {
 		return memberService.findAll();
 	}
