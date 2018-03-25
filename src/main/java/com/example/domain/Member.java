@@ -22,7 +22,15 @@ public class Member {
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Event event;
-	
+
+	public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
 	public Long getId() {
 		return id;
 	}
@@ -53,14 +61,6 @@ public class Member {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public Event getEvent() {
-		return event;
-	}
-
-	public void setEvent(Event event) {
-		this.event = event;
 	}
 
 }

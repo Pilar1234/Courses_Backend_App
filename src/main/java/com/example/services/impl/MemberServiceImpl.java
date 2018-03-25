@@ -19,9 +19,7 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.findAll();
 	}
 	
-	public Member create(Member member) {
-		
+	public Member create(Member member) {		
 		return memberRepository.save(member);
-	}
-	
+	}	
 }

@@ -3,12 +3,16 @@ package com.example.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Event;
-import com.example.domain.Member;
+import com.example.domain.EventDto;
 import com.example.services.EventService;
-import com.example.services.MemberService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -19,8 +23,18 @@ public class EventController {
 	private EventService eventService;
 	
 	@PostMapping("/add")
-	public Event addEventPost (@RequestBody Event event) {
-		return eventService.create(event);
+	public EventDto addEventPost (@RequestBody Event event) {
+		Event result = eventService.create(event);
+		EventDto dto = new EventDto();
+		
+		dto.setId(result.getId());
+		dto.setTitle(result.getTitle());
+		dto.setAdress(result.getAdress());
+		dto.setCity(result.getCity());
+		dto.setMaxParticipants(result.getPeople());
+		dto.setEventDate(result.getEventDate());
+		dto.setDescription(result.getDescription());
+		return dto;
 	}
 	
 	@GetMapping("/add")

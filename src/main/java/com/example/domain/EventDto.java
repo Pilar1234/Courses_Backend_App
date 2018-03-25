@@ -2,28 +2,18 @@ package com.example.domain;
 
 import java.util.List;
 
-import javax.persistence.*;
+public class EventDto {
 
-@Entity
-@Table(name="event")
-public class Event {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
 	private String title;
 	private String eventDate;
-	private int people;
+	private int maxParticipants;
 	private String city;
 	private String adress;
-
-	@Column(columnDefinition = "text")
 	private String description;
 
-	@OneToMany(mappedBy="event", cascade=CascadeType.ALL)
-	private List<Member> membersNumber;
-
+	private List<MemberDto> currentParticipants;
+	
 	public int getId() {
 		return id;
 	}
@@ -48,12 +38,12 @@ public class Event {
 		this.eventDate = eventDate;
 	}
 
-	public int getPeople() {
-		return people;
+	public int getMaxParticipants() {
+		return maxParticipants;
 	}
 
-	public void setPeople(int people) {
-		this.people = people;
+	public void setMaxParticipants(int maxParticipants) {
+		this.maxParticipants = maxParticipants;
 	}
 
 	public String getCity() {
@@ -80,12 +70,11 @@ public class Event {
 		this.description = description;
 	}
 
-	public List<Member> getMembersNumber() {
-		return membersNumber;
+	public List<MemberDto> getCurrentParticipants() {
+		return currentParticipants;
 	}
 
-	public void setMembersNumber(List<Member> membersNumber) {
-		this.membersNumber = membersNumber;
+	public void setCurrentParticipants(List<MemberDto> currentParticipants) {
+		this.currentParticipants = currentParticipants;
 	}
-
 }
