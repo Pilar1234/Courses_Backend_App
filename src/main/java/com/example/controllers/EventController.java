@@ -23,8 +23,18 @@ public class EventController {
 	private EventService eventService;
 	
 	@PostMapping("/add")
-	public EventDto addEventPost (@RequestBody Event event) {
-		Event result = eventService.create(event);
+	public EventDto addEventPost (@RequestBody EventDto event) {
+		
+		Event entry = new Event();
+		entry.setTitle(event.getTitle());
+		entry.setAdress(event.getAdress());
+		entry.setCity(event.getCity());
+		entry.setPeople(event.getMaxParticipants());
+		entry.setEventDate(event.getEventDate());
+		entry.setDescription(event.getDescription());
+		
+		
+		Event result = eventService.create(entry);
 		EventDto dto = new EventDto();
 		
 		dto.setId(result.getId());

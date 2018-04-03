@@ -23,18 +23,18 @@ public class AddEventTest {
 	TestRestTemplate restTemplate;
 	
 	@Test
-	public void addEvent() {
-		Assertions.assertThat(restTemplate).isNotNull();
-
-		Event item = new Event();
+	public void registerEvent() {
+		EventDto item = new EventDto();
 		item.setAdress("Krakowskie Przedmiescie 5");
 		item.setCity("Warszawa");
 		item.setDescription("Przykładowy opis szkolenia");
 		item.setEventDate("5/10/2017");
-		item.setPeople(20);
+		item.setMaxParticipants(20);
 		item.setTitle("Przykładowy test");
+		
 		ResponseEntity<EventDto> response = restTemplate.postForEntity("/api/add", item, EventDto.class);
 		EventDto actual = response.getBody();
+		
 		Assertions.assertThat(actual.getAdress()).hasToString("Krakowskie Przedmiescie 5");
 		Assertions.assertThat(actual.getCity()).hasToString("Warszawa");
 		Assertions.assertThat(actual.getDescription()).hasToString("Przykładowy opis szkolenia");

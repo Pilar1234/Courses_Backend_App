@@ -1,8 +1,16 @@
 package com.example.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="event")
@@ -22,7 +30,7 @@ public class Event {
 	private String description;
 
 	@OneToMany(mappedBy="event", cascade=CascadeType.ALL)
-	private List<Member> membersNumber;
+	private List<Member> membersNumber = new ArrayList<Member>();
 
 	public int getId() {
 		return id;
