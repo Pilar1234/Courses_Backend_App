@@ -20,7 +20,7 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public Event findOne(long id) {
+	public Event findOne(int id) {
 		return eventRepository.findOne(id);
 	}
 

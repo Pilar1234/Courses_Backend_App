@@ -10,5 +10,5 @@ public interface EventService {
 	
 	List<Event> findAll();
 	
-	Event findOne(long id);
+	Event findOne(int id);
 }

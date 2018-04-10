@@ -1,80 +1,86 @@
 package com.example.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventDto {
 
-	private int id;
-	private String title;
-	private String eventDate;
-	private int maxParticipants;
-	private String city;
-	private String adress;
-	private String description;
+    private int id;
+    private String title;
+    private String eventDate;
+    private int maxParticipants;
+    private String city;
+    private String adress;
+    private String description;
 
-	private List<MemberDto> currentParticipants;
-	
-	public int getId() {
-		return id;
-	}
+    private List<MemberDto> currentParticipants = new ArrayList<>();
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getEventDate() {
-		return eventDate;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setEventDate(String eventDate) {
-		this.eventDate = eventDate;
-	}
+    public String getEventDate() {
+        return eventDate;
+    }
 
-	public int getMaxParticipants() {
-		return maxParticipants;
-	}
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
 
-	public void setMaxParticipants(int maxParticipants) {
-		this.maxParticipants = maxParticipants;
-	}
+    public int getMaxParticipants() {
+        return maxParticipants;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getAdress() {
-		return adress;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
+    public String getAdress() {
+        return adress;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public List<MemberDto> getCurrentParticipants() {
-		return currentParticipants;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setCurrentParticipants(List<MemberDto> currentParticipants) {
-		this.currentParticipants = currentParticipants;
-	}
+    public List<MemberDto> getCurrentParticipants() {
+        return currentParticipants;
+    }
+
+    public void setCurrentParticipants(List<MemberDto> currentParticipants) {
+        this.currentParticipants = currentParticipants;
+    }
 }
